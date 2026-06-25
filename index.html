@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ням-Осор Билгүүдэй - CV</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #fcf9f2;          /* Зөөлөн цагаан шаргал */
+            --accent-color: #e5ad35;      /* Алтлаг шаргал */
+            --dark-color: #2c2519;        /* Хар саарал / Бор туяатай */
+            --sidebar-bg: #f3ede0;        /* Бага зэрэг бараан шаргал */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--dark-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Falling background animation */
+        .animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(135deg, var(--accent-color), #fff);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* CV Container */
+        .cv-container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(44, 37, 25, 0.1);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: row; /* Компьютер дээр хажуу мөрөөр */
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(229, 173, 53, 0.2);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1 1 320px;
+            background-color: var(--sidebar-bg);
+            padding: 40px 30px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;
+            font-size: 45px;
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(229, 173, 53, 0.3);
+        }
+
+        .profile-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-color);
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .profile-section .title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            margin: 20px 0;
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .info-section h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid rgba(229, 173, 53, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .info-section h3 i {
+            color: var(--accent-color);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .info-item i {
+            color: var(--accent-color);
+            width: 16px;
+            text-align: center;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: var(--white);
+            color: var(--dark-color);
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            border: 1px solid rgba(229, 173, 53, 0.2);
+            transition: 0.3s;
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .tag2 {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 2 2 500px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .content-block {
+            margin-bottom: 35px;
+        }
+
+        .content-block h2 {
+            font-size: 20px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .content-block h2 i {
+            color: var(--accent-color);
+        }
+
+        .content-block p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Timeline / Education */
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--accent-color);
+            margin-top: 10px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            gap: 10px;
+        }
+
+        .timeline-header h4 {
+            font-size: 16px;
+            color: var(--dark-color);
+        }
+
+        .timeline-header .date {
+            font-size: 12px;
+            background-color: rgba(229, 173, 53, 0.2);
+            color: #b58115;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .institution {
+            font-style: italic;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Projects Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .project-card {
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(229, 173, 53, 0.15);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(229, 173, 53, 0.15);
+            border-color: var(--accent-color);
+        }
+
+        .project-card h5 {
+            font-size: 15px;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Strengths */
+        .strengths-list {
+            list-style: none;
+        }
+
+        .strengths-list li {
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .strengths-list li i {
+            color: #4caf50;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* 📱 УТАС БОЛОН ТАБЛЕТОНД ЗОРИУЛСАН RESPONSIVE ЗОХИЦУУЛАЛТ */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px; /* Утсан дээр гаднах зайг багасгана */
+            }
+
+            .cv-container {
+                flex-direction: column; /* Хажуу мөр биш босоо багана болгоно */
+                border-radius: 12px;
+            }
+
+            .sidebar {
+                flex: 1 1 auto;
+                padding: 30px 20px;
+            }
+
+            .main-content {
+                flex: 1 1 auto;
+                padding: 30px 20px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr; /* Утсан дээр төслүүдийг 1 баганаар цувуулна */
+            }
+
+            .timeline-header {
+                flex-direction: column; /* Боловсролын гарчиг, огноог дээр дээр нь гаргана */
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animation-container" id="particles"></div>
+
+    <div class="cv-container">
+        
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="avatar">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <h2>Ням-Осор<br>Билгүүдэй</h2>
+                <p class="title">Full-Stack Developer</p>
+            </div>
+
+            <hr class="divider">
+
+            <div class="info-section">
+                <h3><i class="fa-solid fa-address-book"></i> Холбоо барих</h3>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+976 80534515</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>n.bilgvvdei@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Улаанхуаран, Улаанбаатар</span>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3><i class="fa-solid fa-code"></i> Технологийн ур чадвар</h3>
+                <div class="tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">React.js</span>
+                    <span class="tag">HTML5 & CSS3</span>
+                    <span class="tag">Tailwind CSS</span>
+                    <span class="tag">Ubuntu</span>
+                    <span class="tag">Server менежмент</span>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3><i class="fa-solid fa-chart-pie"></i> Нэмэлт мэдлэг</h3>
+                <div class="tags secondary">
+                    <span class="tag2">Tableau</span>
+                    <span class="tag2">Data Analysis</span>
+                    <span class="tag2">AI хөгжүүлэлт</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <section class="content-block">
+                <h2><i class="fa-solid fa-briefcase"></i> Товч намтар</h2>
+                <p>MSmart Academy-ийг Full-Stack Developer мэргэжлээр амжилттай суралцаж, дипломоо хамгаалсан. Веб болон гар утасны аппликейшн хөгжүүлэлт, өгөгдлийн анализ болон хиймэл оюун ухааны чиглэлээр өөрийгөө тасралтгүй хөгжүүлж буй 20 настай, эрч хүчтэй залуу мэргэжилтэн. Багаар ажиллах болон цаг баримтлах өндөр сахилга баттай.</p>
+            </section>
+
+            <section class="content-block">
+                <h2><i class="fa-solid fa-graduation-cap"></i> Боловсрол</h2>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <h4>Мэргэжлийн Диплом - Full-Stack Developer</h4>
+                        <span class="date">Төгссөн</span>
+                    </div>
+                    <p class="institution">MSmart Academy</p>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <h2><i class="fa-solid fa-laptop-code"></i> Хийж гүйцэтгэсэн төслүүд</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h5>Auto Hub</h5>
+                        <p>Автомашин сонирхогчдод зориулсан мэдээлэл болон платформын шийдэл бүхий вэб сайт.</p>
+                    </div>
+                    <div class="project-card">
+                        <h5>Barber Book a Haircut</h5>
+                        <p>Үсчин, гоо сайхны газрын цаг захиалгын ухаалаг систем.</p>
+                    </div>
+                    <div class="project-card">
+                        <h5>Soril</h5>
+                        <p>Хэрэглэгчдийн мэдлэг, чадварыг сорих зориулалттай онлайн тестийн платформ.</p>
+                    </div>
+                    <div class="project-card">
+                        <h5>The Imposter</h5>
+                        <p>Интерактив тоглоомын элемент агуулсан сонирхолтой аппликейшн.</p>
+                    </div>
+                    <div class="project-card">
+                        <h5>Stop the Time</h5>
+                        <p>Хугацаа хэмжих, цаг төлөвлөлтийн туслах хэрэгсэл вэб програм.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <h2><i class="fa-solid fa-star"></i> Хувийн давуу талууд</h2>
+                <ul class="strengths-list">
+                    <li><i class="fa-solid fa-check-circle"></i> <span><strong>Цаг баримтлах:</strong> Даалгавар болон төслийг товлосон хугацаанд чанартай гүйцэтгэдэг.</span></li>
+                    <li><i class="fa-solid fa-check-circle"></i> <span><strong>Багийн ажиллагаа:</strong> Хамт олонтойгоо хурдан хэл авалцаж, бүтээлч уур амьсгал бүрдүүлдэг.</span></li>
+                    <li><i class="fa-solid fa-check-circle"></i> <span><strong>Хурдан шуурхай:</strong> Асуудлыг түргэн хугацаанд ойлгож, оновчтой шийдэл гаргах чадвартай.</span></li>
+                    <li><i class="fa-solid fa-check-circle"></i> <span><strong>Ярианы хэлэмж сайттай:</strong> Өөрийн санаа бодлыг бусдад ойлгомжтойгоор илэрхийлж, илтгэх чадвартай.</span></li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const particleContainer = document.getElementById("particles");
+            const particleCount = 25; // Утсан дээр хэт их ачаалал өгөхгүйн тулд тоог бага зэрэг цөөлөв
+
+            for (let i = 0; i < particleCount; i++) {
+                createParticle();
+            }
+
+            function createParticle() {
+                const particle = document.createElement("div");
+                particle.classList.add("particle");
+
+                const size = Math.random() * 4 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+
+                particle.style.left = `${Math.random() * 100}vw`;
+
+                const duration = Math.random() * 10 + 6;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${Math.random() * -15}s`;
+
+                particleContainer.appendChild(particle);
+
+                particle.addEventListener("animationiteration", () => {
+                    particle.style.left = `${Math.random() * 100}vw`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -74,13 +74,13 @@
         /* CV Container */
         .cv-container {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
             background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(10px);
             box-shadow: 0 15px 35px rgba(44, 37, 25, 0.1);
             border-radius: 16px;
             display: flex;
-            flex-direction: row; /* Компьютер дээр хажуу мөрөөр */
+            flex-direction: row;
             overflow: hidden;
             position: relative;
             z-index: 2;
@@ -89,28 +89,28 @@
 
         /* Sidebar */
         .sidebar {
-            flex: 1 1 320px;
+            flex: 1 1 340px;
             background-color: var(--sidebar-bg);
-            padding: 40px 30px;
+            padding: 40px 25px;
         }
 
         .profile-section {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
+        /* Профайл зураг оруулах хэсэг */
         .avatar {
-            width: 100px;
-            height: 100px;
-            background-color: var(--accent-color);
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             margin: 0 auto 15px;
-            font-size: 45px;
-            color: var(--white);
             box-shadow: 0 5px 15px rgba(229, 173, 53, 0.3);
+            border: 3px solid var(--accent-color);
+            background-size: cover;
+            background-position: center;
+            /* Өөрийн зургийн линкийг доор солно уу */
+            background-image: url(''); 
         }
 
         .profile-section h2 {
@@ -127,6 +127,38 @@
             letter-spacing: 1.5px;
             color: var(--accent-color);
             font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* 🔽 ПРОФАЙЛЫН ХАЖУУД БАЙРЛАХ ХЭВТЭЭ SCROLL HINT */
+        .scroll-hint-horizontal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: rgba(229, 173, 53, 0.12);
+            border: 1px solid rgba(229, 173, 53, 0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            color: #92660a;
+            font-weight: 600;
+            margin: 5px auto 0;
+            animation: pulse 2s infinite alternate;
+        }
+
+        .scroll-hint-horizontal i {
+            animation: bounce 0.8s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(-2px); }
+            100% { transform: translateY(2px); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.85; }
+            100% { opacity: 1; box-shadow: 0 0 8px rgba(229, 173, 53, 0.15); }
         }
 
         .divider {
@@ -137,14 +169,14 @@
         }
 
         .info-section {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .info-section h3 {
-            font-size: 16px;
+            font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--dark-color);
             display: flex;
             align-items: center;
@@ -171,40 +203,45 @@
             text-align: center;
         }
 
+        /* Технологийн ангилал */
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category h4 {
+            font-size: 13px;
+            color: #7c6847;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
 
         .tag {
             background-color: var(--white);
             color: var(--dark-color);
-            padding: 6px 12px;
+            padding: 5px 10px;
             font-size: 12px;
-            border-radius: 20px;
+            border-radius: 6px;
             font-weight: 500;
-            border: 1px solid rgba(229, 173, 53, 0.2);
-            transition: 0.3s;
+            border: 1px solid rgba(229, 173, 53, 0.15);
+            transition: 0.2s;
         }
 
         .tag:hover {
             background-color: var(--accent-color);
             color: var(--white);
-        }
-
-        .tag2 {
-            background-color: var(--dark-color);
-            color: var(--white);
-            padding: 6px 12px;
-            font-size: 12px;
-            border-radius: 20px;
-            font-weight: 500;
+            border-color: var(--accent-color);
         }
 
         /* Main Content */
         .main-content {
-            flex: 2 2 500px;
+            flex: 2 2 550px;
             padding: 40px;
             background-color: rgba(255, 255, 255, 0.6);
         }
@@ -220,7 +257,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            position: relative;
         }
 
         .content-block h2 i {
@@ -239,7 +275,11 @@
             position: relative;
             padding-left: 20px;
             border-left: 2px solid var(--accent-color);
-            margin-top: 10px;
+            margin-bottom: 18px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
         .timeline-dot {
@@ -256,18 +296,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             gap: 10px;
         }
 
         .timeline-header h4 {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--dark-color);
+            font-weight: 600;
         }
 
         .timeline-header .date {
-            font-size: 12px;
-            background-color: rgba(229, 173, 53, 0.2);
+            font-size: 11px;
+            background-color: rgba(229, 173, 53, 0.15);
             color: #b58115;
             padding: 2px 8px;
             border-radius: 10px;
@@ -278,13 +319,13 @@
         .institution {
             font-style: italic;
             color: #666;
-            font-size: 14px;
+            font-size: 13.5px;
         }
 
         /* Projects Grid */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 15px;
             margin-top: 15px;
         }
@@ -312,7 +353,7 @@
         }
 
         .project-card p {
-            font-size: 12px;
+            font-size: 12.5px;
             color: #666;
             line-height: 1.4;
         }
@@ -338,35 +379,30 @@
             flex-shrink: 0;
         }
 
-        /* 📱 УТАС БОЛОН ТАБЛЕТОНД ЗОРИУЛСАН RESPONSIVE ЗОХИЦУУЛАЛТ */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             body {
-                padding: 10px; /* Утсан дээр гаднах зайг багасгана */
+                padding: 10px;
             }
 
             .cv-container {
-                flex-direction: column; /* Хажуу мөр биш босоо багана болгоно */
+                flex-direction: column;
                 border-radius: 12px;
             }
 
-            .sidebar {
+            .sidebar, .main-content {
                 flex: 1 1 auto;
-                padding: 30px 20px;
-            }
-
-            .main-content {
-                flex: 1 1 auto;
-                padding: 30px 20px;
+                padding: 25px 20px;
             }
 
             .project-grid {
-                grid-template-columns: 1fr; /* Утсан дээр төслүүдийг 1 баганаар цувуулна */
+                grid-template-columns: 1fr;
             }
 
             .timeline-header {
-                flex-direction: column; /* Боловсролын гарчиг, огноог дээр дээр нь гаргана */
+                flex-direction: column;
                 align-items: flex-start;
-                gap: 5px;
+                gap: 4px;
             }
         }
     </style>
@@ -379,11 +415,14 @@
         
         <aside class="sidebar">
             <div class="profile-section">
-                <div class="avatar">
-                    <i class="fa-solid fa-user-gear"></i>
-                </div>
+                <div class="avatar"></div>
                 <h2>Ням-Осор<br>Билгүүдэй</h2>
                 <p class="title">Full-Stack Developer</p>
+                
+                <div class="scroll-hint-horizontal">
+                    <i class="fa-solid fa-arrow-down-long"></i>
+                    <span>Доошоо гүйлгэж үзээрэй</span>
+                </div>
             </div>
 
             <hr class="divider">
@@ -405,24 +444,55 @@
             </div>
 
             <div class="info-section">
-                <h3><i class="fa-solid fa-code"></i> Технологийн ур чадвар</h3>
-                <div class="tags">
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">React.js</span>
-                    <span class="tag">HTML5 & CSS3</span>
-                    <span class="tag">Tailwind CSS</span>
-                    <span class="tag">Ubuntu</span>
-                    <span class="tag">Server менежмент</span>
+                <h3><i class="fa-solid fa-code"></i> Мэргэжлийн ур чадвар</h3>
+                
+                <div class="skill-category">
+                    <h4>Front-End</h4>
+                    <div class="tags">
+                        <span class="tag">HTML</span><span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Tailwind CSS</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="info-section">
-                <h3><i class="fa-solid fa-chart-pie"></i> Нэмэлт мэдлэг</h3>
-                <div class="tags secondary">
-                    <span class="tag2">Tableau</span>
-                    <span class="tag2">Data Analysis</span>
-                    <span class="tag2">AI хөгжүүлэлт</span>
+                <div class="skill-category">
+                    <h4>Back-End</h4>
+                    <div class="tags">
+                        <span class="tag">Node.js</span><span class="tag">Express.js</span>
+                        <span class="tag">Python</span><span class="tag">Django</span>
+                        <span class="tag">Flask</span><span class="tag">Java</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Database</h4>
+                    <div class="tags">
+                        <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span>
+                        <span class="tag">SQLite</span><span class="tag">DBeaver</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Mobile Development</h4>
+                    <div class="tags">
+                        <span class="tag">React Native</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Cloud / Devops</h4>
+                    <div class="tags">
+                        <span class="tag">GitHub Actions</span><span class="tag">Linux Server</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>AI Integration</h4>
+                    <div class="tags">
+                        <span class="tag">AI Chatbot</span><span class="tag">AI Translator</span>
+                        <span class="tag">AI Image Generator</span><span class="tag">OCR Scanner</span>
+                    </div>
                 </div>
             </div>
         </aside>
@@ -431,11 +501,12 @@
             
             <section class="content-block">
                 <h2><i class="fa-solid fa-briefcase"></i> Товч намтар</h2>
-                <p>MSmart Academy-ийг Full-Stack Developer мэргэжлээр амжилттай суралцаж, дипломоо хамгаалсан. Веб болон гар утасны аппликейшн хөгжүүлэлт, өгөгдлийн анализ болон хиймэл оюун ухааны чиглэлээр өөрийгөө тасралтгүй хөгжүүлж буй 20 настай, эрч хүчтэй залуу мэргэжилтэн. Багаар ажиллах болон цаг баримтлах өндөр сахилга баттай.</p>
+                <p>MSmart Academy-ийг Full-Stack Developer мэргэжлээр амжилттай суралцаж, дипломоо хамгаалсан. Веб болон гар утасны аппликейшн хөгжүүлэлт, өгөгдлийн бүтэц, үүлэн технологи болон хиймэл оюун ухааны интеграцийн чиглэлээр өөрийгөө тасралтгүй хөгжүүлж буй 20 настай, эрч хүчтэй залуу мэргэжилтэн. Шаардлагатай шийдлийг хурдан гаргаж, багаар ажиллахдаа гаргууд.</p>
             </section>
 
             <section class="content-block">
-                <h2><i class="fa-solid fa-graduation-cap"></i> Боловсрол</h2>
+                <h2><i class="fa-solid fa-graduation-cap"></i> Боловсрол ба Хэлний мэдлэг</h2>
+                
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-header">
@@ -443,6 +514,24 @@
                         <span class="date">Төгссөн</span>
                     </div>
                     <p class="institution">MSmart Academy</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <h4>Герман хэлний B1 Түвшин</h4>
+                        <span class="date">Хэлний мэдлэг</span>
+                    </div>
+                    <p class="institution">Олон улсын хэлний бэлтгэл</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <h4>Бүрэн дунд боловсрол</h4>
+                        <span class="date">Төгссөн</span>
+                    </div>
+                    <p class="institution">Ерөнхий боловсролын 69-р сургууль</p>
                 </div>
             </section>
 
@@ -460,10 +549,6 @@
                     <div class="project-card">
                         <h5>Soril</h5>
                         <p>Хэрэглэгчдийн мэдлэг, чадварыг сорих зориулалттай онлайн тестийн платформ.</p>
-                    </div>
-                    <div class="project-card">
-                        <h5>The Imposter</h5>
-                        <p>Интерактив тоглоомын элемент агуулсан сонирхолтой аппликейшн.</p>
                     </div>
                     <div class="project-card">
                         <h5>Stop the Time</h5>
@@ -488,7 +573,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const particleContainer = document.getElementById("particles");
-            const particleCount = 25; // Утсан дээр хэт их ачаалал өгөхгүйн тулд тоог бага зэрэг цөөлөв
+            const particleCount = 25;
 
             for (let i = 0; i < particleCount; i++) {
                 createParticle();
